@@ -1,11 +1,15 @@
 package br.com.alurafood.pagamentos.dto;
 
 import br.com.alurafood.pagamentos.enums.StatusEnum;
-import lombok.Data;
+import jakarta.validation.constraints.NotBlank;
+import lombok.*;
+
 
 import java.math.BigDecimal;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class PagamentoDto {
 
 
@@ -15,7 +19,9 @@ public class PagamentoDto {
     private String numero;
     private String expirado;
     private String codigo;
-    //private StatusEnum status;
+    private StatusEnum status;
     private Long pedidoId;
     private Long formaDePagamento;
+
+
 }

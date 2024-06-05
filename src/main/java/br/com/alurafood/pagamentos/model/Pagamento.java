@@ -2,12 +2,15 @@ package br.com.alurafood.pagamentos.model;
 
 import br.com.alurafood.pagamentos.enums.StatusEnum;
 import jakarta.persistence.*;
+
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.Size;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.hibernate.validator.constraints.NotBlank;
+import lombok.*;
+
+
+
 import org.jetbrains.annotations.NotNull;
 
 import java.math.BigDecimal;
@@ -49,7 +52,6 @@ public class Pagamento {
     @Column(name = "CODIGO")
     private String codigo;
 
-    @NotNull
     @Enumerated(EnumType.STRING)
     @Column(name = "STATUS")
     private StatusEnum status;

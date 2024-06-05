@@ -47,7 +47,12 @@ public class PagamentoService {
     public PagamentoDto atualizarPagamento(Long id, @Valid PagamentoDto pagamentoDto){
         Pagamento pagamento = modelMapper.map(pagamentoDto, Pagamento.class);
         pagamento.setId(id);
-        pagamento = dao.save(pagamento);
+        try{
+            pagamento = dao.save(pagamento);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
         return modelMapper.map(pagamento, PagamentoDto.class);
     }
 
